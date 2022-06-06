@@ -4,7 +4,11 @@ import com.example.basic.domain.Member;
 import com.example.basic.repository.MemberRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
+@Transactional
 public class MemberService {
 
     private final MemberRepository repository;
@@ -12,11 +16,8 @@ public class MemberService {
     public MemberService(MemberRepository repository) {
         this.repository = repository;
     }
-
     /**
      *
-     * @param member
-     * @return
      */
     public Long join(Member member) {
         validateMember(member);
